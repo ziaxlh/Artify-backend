@@ -17,7 +17,7 @@ app = FastAPI()
 # Configuración para permitir CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://artify-4454d.web.app"],  
+    allow_origins=["https://ziaxlh.github.io"],  # Ajusta esto para que coincida con la URL de tu frontend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -205,7 +205,6 @@ async def compress_image(file: UploadFile = File(...), quality: int = Form(20)):
         logging.error(f"Error compressing image: {str(e)}")
         return JSONResponse(status_code=500, content={"error": str(e)})
 
-
-if __name__ == "__main__":
+if '_name_' == "_main_":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
