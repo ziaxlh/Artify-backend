@@ -102,9 +102,6 @@ async def change_image_format(file: UploadFile = File(...), format: str = Form(.
 @app.post("/convert-image/")
 async def convert_image(file: UploadFile = File(...), format: str = Form(...)):
     return await change_image_format(file, format)
-
-@app.post("/apply-filter/")
-async def apply_filter(file: UploadFile = File(...), filter_name: str = Form(...)):
     if file.content_type not in ["image/jpeg", "image/png", "image/gif", "image/bmp"]:
         raise HTTPException(status_code=400, detail="Invalid file type. Only jpg, png, bmp y gif.")
 
